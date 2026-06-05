@@ -1,12 +1,17 @@
 <?php
 
-require_once "config/Database.php";
+require_once "controllers/LivroController.php";
 
-$database = new Database();
-$conexao = $database->conectar();
+$controller = new LivroController();
 
-if ($conexao) {
-    echo "Conexão com o banco de dados realizada com sucesso!";
-} else {
-    echo "Erro ao conectar com o banco de dados.";
+$acao = $_GET["acao"] ?? "listar";
+
+switch ($acao) {
+    case "listar":
+        $controller->listar();
+        break;
+
+    default:
+        $controller->listar();
+        break;
 }
