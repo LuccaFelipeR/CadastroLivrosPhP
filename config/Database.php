@@ -3,9 +3,10 @@
 class Database
 {
     private $host = "localhost";
+    private $port = "5432";
     private $db_name = "sistema_livros";
-    private $username = "root";
-    private $password = "";
+    private $username = "postgres";
+    private $password = "1234";
     public $conn;
 
     public function conectar()
@@ -14,7 +15,7 @@ class Database
 
         try {
             $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8",
+                "pgsql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name,
                 $this->username,
                 $this->password
             );
